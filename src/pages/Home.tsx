@@ -6,14 +6,14 @@ const Home = () => {
   const [produtoFiltrado, setProdutoFiltrado] = useState("");
 
   useEffect(() => {
-    setLista(produtos);
+    setLista(produtos as Produto[]);
   }, []);
 
   const getProduct = (produtoNome: string) => {
     setProdutoFiltrado(produtoNome);
 
     if (produtoNome.trim() === "") {
-      setLista(produtos);
+      setLista(produtos as Produto[]);
       return;
     }
 
