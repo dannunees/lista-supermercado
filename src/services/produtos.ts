@@ -1,11 +1,4 @@
-export type Produto = {
-    produto_id: number;
-    descricao: string;
-    imagem: string;
-    preco: string;
-}
-
-const produtos: Produto[] = [
+const produtos = [
     {
         "produto_id": 3675,
         "classificacao_mercadologica_id": 39,

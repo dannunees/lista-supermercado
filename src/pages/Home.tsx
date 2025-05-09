@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
-import produtos, { type Produto } from "../services/produtos";
+import produtos from "../services/produtos";
 
 const Home = () => {
+  interface Produto {
+    produto_id: number;
+    descricao: string;
+    preco: string;
+    imagem: string;
+  }
+
   const [lista, setLista] = useState<Produto[]>([]);
   const [produtoFiltrado, setProdutoFiltrado] = useState("");
 
   useEffect(() => {
-    setLista(produtos as Produto[]);
+    setLista(lista);
   }, []);
 
   const getProduct = (produtoNome: string) => {
     setProdutoFiltrado(produtoNome);
 
     if (produtoNome.trim() === "") {
-      setLista(produtos as Produto[]);
+      setLista(lista);
       return;
     }
 
