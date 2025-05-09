@@ -6,7 +6,7 @@ const Home = () => {
     produto_id: number;
     descricao: string;
     preco: string;
-    imagem: string;
+    imagem: string | null;
   }
 
   const [lista, setLista] = useState<Produto[]>([]);
