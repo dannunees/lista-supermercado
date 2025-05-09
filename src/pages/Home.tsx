@@ -13,7 +13,7 @@ const Home = () => {
   const [produtoFiltrado, setProdutoFiltrado] = useState("");
 
   useEffect(() => {
-    setLista(lista);
+    setLista(produtos);
   }, []);
 
   const getProduct = (produtoNome: string) => {
