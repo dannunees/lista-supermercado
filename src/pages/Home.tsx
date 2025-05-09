@@ -30,6 +30,53 @@ const Home = () => {
     setLista(buscaProduto);
   };
 
+  type ItemCarrinho = {
+    id: number;
+    nome: string;
+    valor: string;
+    imagem: string | null;
+    quantidade: number;
+  };
+
+  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>(() => {
+    const stored = localStorage.getItem("carrinho");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  }, [carrinho]);
+
+  const handleClick = (
+    id: number,
+    nome: string,
+    valor: string,
+    imagem: string | null
+  ) => {
+    alert("Produto Adicionado ao Carrinho!");
+    setCarrinho((prev: ItemCarrinho[]) => {
+      const index = prev.findIndex((item) => item.id === id);
+
+      if (index !== -1) {
+        // Se o produto já existe, incrementa a quantidade
+        const atualizado = [...prev];
+        atualizado[index].quantidade += 1;
+        return atualizado;
+      }
+
+      // Se não existe, adiciona com quantidade 1
+      const novoProduto: ItemCarrinho = {
+        id,
+        nome,
+        valor,
+        imagem,
+        quantidade: 1,
+      };
+
+      return [...prev, novoProduto];
+    });
+  };
+
   return (
     <>
       <h1 className="text-4xl text-center font-bold pt-10 px-4">
@@ -58,9 +105,22 @@ const Home = () => {
                 src={`https://produtos.vipcommerce.com.br/250x250/${produto.imagem}`}
                 alt={produto.descricao}
               />
-              <h4 className="bg-green-700 px-4 py-2 rounded-md w-full text-center">
+              <h4 className="bg-red-700 font-bold px-4 py-2 rounded-md w-full text-center">
                 R$<span>{produto.preco}</span>
               </h4>
+              <button
+                onClick={() =>
+                  handleClick(
+                    produto.produto_id,
+                    produto.descricao,
+                    produto.preco,
+                    produto.imagem
+                  )
+                }
+                className="bg-green-700 text-white py-2 px-4 w-full"
+              >
+                Adicionar ao Carrinho
+              </button>
             </div>
           ))
         ) : (
