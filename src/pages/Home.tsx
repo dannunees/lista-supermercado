@@ -96,12 +96,13 @@ const Home = () => {
           lista.map((produto) => (
             <div
               key={produto.produto_id}
-              className="flex flex-col justify-between items-center gap-8 bg-white p-4"
+              className="flex flex-col justify-between items-center gap-4 md:gap-8 bg-white p-4"
             >
-              <h2 className="text-black font-bold text-2xl text-center">
+              <h2 className="text-black font-bold text-[16px] md:text-2xl text-center">
                 {produto.descricao}
               </h2>
               <img
+                className="h-[120px] md:h-full"
                 src={`https://produtos.vipcommerce.com.br/250x250/${produto.imagem}`}
                 alt={produto.descricao}
               />
