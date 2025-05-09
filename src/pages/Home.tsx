@@ -91,14 +91,14 @@ const Home = () => {
           value={produtoFiltrado}
         />
       </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-stretch gap-8 pt-10 px-4">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-stretch gap-4 md:gap-8 pt-10 px-4">
         {lista.length > 0 ? (
           lista.map((produto) => (
             <div
               key={produto.produto_id}
-              className="flex flex-col justify-between items-center gap-4 md:gap-8 bg-white p-4"
+              className="flex flex-col justify-between items-center gap-4 md:gap-8 bg-white p-4 rounded-lg"
             >
-              <h2 className="text-black font-bold text-[16px] md:text-2xl text-center">
+              <h2 className="text-black font-bold text-[14px] md:text-2xl text-center">
                 {produto.descricao}
               </h2>
               <img
@@ -118,9 +118,9 @@ const Home = () => {
                     produto.imagem
                   )
                 }
-                className="bg-green-700 text-white py-2 px-4 w-full"
+                className="bg-green-700 text-white text-[14px] md:text-[16px] py-2 px-4 w-full rounded-md"
               >
-                Adicionar ao Carrinho
+                Adicionar
               </button>
             </div>
           ))
