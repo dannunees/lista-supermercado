@@ -79,7 +79,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="text-4xl text-center font-bold pt-10 px-4">
+      <h1 className="text-4xl text-white text-center font-bold pt-10 px-4">
         Produtos Supermercado
       </h1>
       <div className="container mx-auto px-4 pt-8">
@@ -105,7 +105,7 @@ const Home = () => {
                 src={`https://produtos.vipcommerce.com.br/250x250/${produto.imagem}`}
                 alt={produto.descricao}
               />
-              <h4 className="bg-red-700 font-bold px-4 py-2 rounded-md w-full text-center">
+              <h4 className="bg-red-700 text-white font-bold px-4 py-2 rounded-md w-full text-center">
                 R$<span>{produto.preco}</span>
               </h4>
               <button

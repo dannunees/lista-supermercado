@@ -5,9 +5,13 @@ const Header = () => {
     <header className="bg-red-700 py-8">
       <div className="container mx-auto">
         <nav>
-          <ul className="flex gap-8">
-            <Link to="/">Home</Link>
-            <Link to="/carrinho">Carrinho</Link>
+          <ul className="flex justify-between gap-8">
+            <Link className="text-white" to="/">
+              Home
+            </Link>
+            <Link className="text-white" to="/carrinho">
+              <img src="/carrinho-de-compras.png" alt="" />
+            </Link>
           </ul>
         </nav>
       </div>

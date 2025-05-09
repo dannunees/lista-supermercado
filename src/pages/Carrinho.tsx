@@ -74,7 +74,9 @@ const Carrinho = () => {
 
   return (
     <div className="container mx-auto px-4 pt-10 pb-20">
-      <h1 className="text-3xl font-bold mb-6">Carrinho de Compras</h1>
+      <h1 className="text-3xl font-bold mb-6 text-white">
+        Carrinho de Compras
+      </h1>
 
       {carrinho.length > 0 ? (
         <>
@@ -128,7 +130,7 @@ const Carrinho = () => {
           </ul>
 
           <div className="mt-6 text-right">
-            <p className="text-xl font-bold mb-2">
+            <p className="text-xl font-bold mb-2 text-white">
               Total: R$ {total.toFixed(2)}
             </p>
             <button
